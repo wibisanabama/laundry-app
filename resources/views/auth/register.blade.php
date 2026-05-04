@@ -28,6 +28,14 @@
                 <input type="email" name="email" class="form-control" placeholder="Enter email" value="{{ old('email') }}" required>
             </div>
             <div class="mb-3">
+                <label class="form-label">Phone Number (Optional)</label>
+                <input type="text" name="phone" class="form-control" placeholder="Enter phone number" value="{{ old('phone') }}">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Address (Optional)</label>
+                <textarea name="address" class="form-control" rows="2" placeholder="Enter full address">{{ old('address') }}</textarea>
+            </div>
+            <div class="mb-3">
                 <label class="form-label">Password</label>
                 <div class="input-group input-group-flat">
                     <input type="password" name="password" class="form-control" placeholder="Password" autocomplete="off" required>
