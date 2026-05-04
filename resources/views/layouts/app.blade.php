@@ -128,13 +128,13 @@
         
         <div class="page-wrapper">
             @yield('content')
-            <footer class="footer footer-transparent d-print-none">
+            <footer class="footer d-print-none border-top bg-white py-3">
                 <div class="container-xl">
-                    <div class="row text-center align-items-center flex-row-reverse">
-                        <div class="col-12 col-lg-auto mt-3 mt-lg-0">
+                    <div class="row align-items-center">
+                        <div class="col-12 col-md-auto ms-auto">
                             <ul class="list-inline list-inline-dots mb-0">
-                                <li class="list-inline-item">
-                                    Copyright &copy; 2026 Sans Laundry. All rights reserved.
+                                <li class="list-inline-item text-secondary">
+                                    &copy; 2026 Sans Laundry - All rights reserved
                                 </li>
                             </ul>
                         </div>
