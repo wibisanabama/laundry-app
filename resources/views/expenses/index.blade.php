@@ -45,14 +45,14 @@
                             <td><span class="text-secondary">{{ $index + 1 }}</span></td>
                             <td>{{ \Carbon\Carbon::parse($expense->date)->format('d M Y') }}</td>
                             <td>{{ $expense->description }}</td>
-                            <td class="text-danger">-Rp {{ number_format($expense->amount, 2) }}</td>
+                            <td class="text-danger">-Rp {{ number_format($expense->amount, 0, ',', '.') }}</td>
                             <td>{{ $expense->user->name }}</td>
                             <td class="text-end">
                                 @if(auth()->user()->role === 'admin' || auth()->id() === $expense->user_id)
                                 <form action="{{ route('expenses.destroy', $expense) }}" method="POST" class="d-inline">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Delete this expense record?')">Delete</button>
+                                    <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Delete expense?')">Delete</button>
                                 </form>
                                 @endif
                             </td>

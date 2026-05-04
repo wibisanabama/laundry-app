@@ -42,7 +42,7 @@
                                 <label class="form-label required">Price</label>
                                 <div class="input-group">
                                     <span class="input-group-text">Rp</span>
-                                    <input type="number" name="price" class="form-control" value="{{ old('price') }}" required min="0" step="0.01">
+                                    <input type="number" name="price" class="form-control" value="{{ old('price') }}" required min="0" step="1">
                                 </div>
                             </div>
                             <div class="col-md-4 mb-3">
@@ -53,7 +53,7 @@
                                 </select>
                             </div>
                             <div class="col-md-4 mb-3">
-                                <label class="form-label required">Duration (Hours)</label>
+                                <label class="form-label required">Duration</label>
                                 <input type="number" name="duration_hours" class="form-control" value="{{ old('duration_hours', 72) }}" required min="1">
                             </div>
                         </div>

@@ -5,7 +5,7 @@
 @section('content')
 <div class="card card-md">
     <div class="card-body">
-        <h2 class="h2 text-center mb-4">Login to your account</h2>
+        <h2 class="h2 text-center mb-4">Login</h2>
         <form action="{{ route('login') }}" method="POST" autocomplete="off" novalidate>
             @csrf
             
@@ -20,7 +20,7 @@
             @endif
 
             <div class="mb-3">
-                <label class="form-label">Email address</label>
+                <label class="form-label">Email</label>
                 <input type="email" name="email" class="form-control" placeholder="your@email.com" autocomplete="off" value="{{ old('email') }}" required>
             </div>
             <div class="mb-2">

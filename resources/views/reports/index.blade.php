@@ -24,7 +24,7 @@
         <div class="card mb-3 d-print-none">
             <div class="card-body">
                 <form method="GET" action="{{ route('reports.index') }}" class="row g-3 align-items-end">
-                    <div class="col-md-3">
+                    <div class="col-md-5">
                         <label class="form-label">Month</label>
                         <select name="month" class="form-select">
                             @for($i=1; $i<=12; $i++)
@@ -34,7 +34,7 @@
                             @endfor
                         </select>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-5">
                         <label class="form-label">Year</label>
                         <select name="year" class="form-select">
                             @for($i=date('Y')-2; $i<=date('Y'); $i++)
@@ -53,8 +53,8 @@
             <div class="col-md-4">
                 <div class="card text-white bg-success">
                     <div class="card-body">
-                        <div class="subheader text-white">Paid Revenue</div>
-                        <div class="h1 mb-0">Rp {{ number_format($totalRevenue, 0) }}</div>
+                        <div class="subheader text-white">Revenue</div>
+                        <div class="h1 mb-0">Rp {{ number_format($totalRevenue, 0, ',', '.') }}</div>
                     </div>
                 </div>
             </div>
@@ -62,7 +62,7 @@
                 <div class="card text-white bg-danger">
                     <div class="card-body">
                         <div class="subheader text-white">Total Expenses</div>
-                        <div class="h1 mb-0">Rp {{ number_format($totalExpense, 0) }}</div>
+                        <div class="h1 mb-0">Rp {{ number_format($totalExpense, 0, ',', '.') }}</div>
                     </div>
                 </div>
             </div>
@@ -70,7 +70,7 @@
                 <div class="card text-white {{ $netProfit >= 0 ? 'bg-primary' : 'bg-warning' }}">
                     <div class="card-body">
                         <div class="subheader text-white">Net Profit</div>
-                        <div class="h1 mb-0">Rp {{ number_format($netProfit, 0) }}</div>
+                        <div class="h1 mb-0">Rp {{ number_format($netProfit, 0, ',', '.') }}</div>
                     </div>
                 </div>
             </div>
@@ -80,7 +80,7 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Income (Paid Orders)</h3>
+                        <h3 class="card-title">Income</h3>
                     </div>
                     <div class="table-responsive">
                         <table class="table table-vcenter card-table">
@@ -96,7 +96,7 @@
                                 <tr>
                                     <td>{{ $order->created_at->format('d M Y') }}</td>
                                     <td>#{{ $order->id }}</td>
-                                    <td class="text-success">+Rp {{ number_format($order->paid_amount, 0) }}</td>
+                                    <td class="text-success">+Rp {{ number_format($order->paid_amount, 0, ',', '.') }}</td>
                                 </tr>
                                 @empty
                                 <tr>
@@ -128,7 +128,7 @@
                                 <tr>
                                     <td>{{ \Carbon\Carbon::parse($expense->date)->format('d M Y') }}</td>
                                     <td>{{ $expense->description }}</td>
-                                    <td class="text-danger">-Rp {{ number_format($expense->amount, 0) }}</td>
+                                    <td class="text-danger">-Rp {{ number_format($expense->amount, 0, ',', '.') }}</td>
                                 </tr>
                                 @empty
                                 <tr>

@@ -48,11 +48,11 @@
                             <td class="text-secondary text-truncate" style="max-width: 200px;">{{ $customer->address ?? '-' }}</td>
                             <td>{{ $customer->created_at->format('d M Y') }}</td>
                             <td class="text-end">
-                                <a href="{{ route('customers.edit', $customer) }}" class="btn btn-sm btn-outline-primary">Edit</a>
-                                <form action="{{ route('customers.destroy', $customer) }}" method="POST" class="d-inline">
+                                <a href="{{ route('customers.edit', $customer->id) }}" class="btn btn-sm btn-outline-primary">Edit</a>
+                                <form action="{{ route('customers.destroy', $customer->id) }}" method="POST" style="display:inline-block;">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Delete this customer?')">Delete</button>
+                                    <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Delete customer?')">Delete</button>
                                 </form>
                             </td>
                         </tr>

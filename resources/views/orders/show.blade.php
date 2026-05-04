@@ -83,25 +83,25 @@
                             <td>
                                 <p class="strong mb-1">{{ $item->service->name }}</p>
                             </td>
-                            <td class="text-center">Rp {{ number_format($item->price, 0) }}</td>
+                            <td class="text-center">Rp {{ number_format($item->price, 0, ',', '.') }}</td>
                             <td class="text-center">{{ $item->quantity }}</td>
-                            <td class="text-end">Rp {{ number_format($item->subtotal, 0) }}</td>
+                            <td class="text-end">Rp {{ number_format($item->subtotal, 0, ',', '.') }}</td>
                         </tr>
                         @endforeach
                         
                         <tr>
                             <td colspan="4" class="strong text-end">Subtotal</td>
-                            <td class="text-end">Rp {{ number_format($subtotalSum, 0) }}</td>
+                            <td class="text-end">Rp {{ number_format($subtotalSum, 0, ',', '.') }}</td>
                         </tr>
                         @if($order->discount > 0)
                         <tr>
                             <td colspan="4" class="strong text-end">Discount</td>
-                            <td class="text-end text-danger">-Rp {{ number_format($order->discount, 0) }}</td>
+                            <td class="text-end text-danger">-Rp {{ number_format($order->discount, 0, ',', '.') }}</td>
                         </tr>
                         @endif
                         <tr>
                             <td colspan="4" class="strong text-end text-uppercase"><strong>Grand Total</strong></td>
-                            <td class="text-end fw-bold h3 mb-0">Rp {{ number_format($order->total_amount, 0) }}</td>
+                            <td class="text-end fw-bold h3 mb-0">Rp {{ number_format($order->total_amount, 0, ',', '.') }}</td>
                         </tr>
                     </tbody>
                 </table>

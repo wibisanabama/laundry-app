@@ -37,6 +37,7 @@
                             <th>Service Name</th>
                             <th>Description</th>
                             <th>Unit</th>
+                            <th>Duration</th>
                             <th>Price</th>
                             <th></th>
                         </tr>
@@ -48,21 +49,22 @@
                             <td>{{ $service->name }}</td>
                             <td class="text-secondary text-truncate" style="max-width: 200px;">{{ $service->description }}</td>
                             <td>{{ strtoupper($service->unit) }}</td>
-                            <td>Rp {{ number_format($service->price, 2) }}</td>
+                            <td>{{ $service->duration_hours }} Jam</td>
+                            <td>Rp {{ number_format($service->price, 0, ',', '.') }}</td>
                             <td class="text-end">
                                 @if(auth()->user()->role === 'admin')
-                                <a href="{{ route('services.edit', $service) }}" class="btn btn-sm btn-outline-primary">Edit</a>
-                                <form action="{{ route('services.destroy', $service) }}" method="POST" class="d-inline">
+                                <a href="{{ route('services.edit', $service->id) }}" class="btn btn-sm btn-outline-primary">Edit</a>
+                                <form action="{{ route('services.destroy', $service->id) }}" method="POST" style="display:inline-block;">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Are you sure?')">Delete</button>
+                                    <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Delete service?')">Delete</button>
                                 </form>
                                 @endif
                             </td>
                         </tr>
                         @empty
                         <tr>
-                            <td colspan="6" class="text-center text-secondary">No services found.</td>
+                            <td colspan="7" class="text-center text-secondary">No services found.</td>
                         </tr>
                         @endforelse
                     </tbody>

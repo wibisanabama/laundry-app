@@ -64,14 +64,14 @@
                                     <span class="badge bg-danger-lt">Cancelled</span>
                                 @endif
                             </td>
-                            <td>Rp {{ number_format($order->total_amount, 2) }}</td>
+                            <td>Rp {{ number_format($order->total_amount, 0, ',', '.') }}</td>
                             <td class="text-end">
                                 <a href="{{ route('orders.show', $order) }}" class="btn btn-sm btn-outline-primary">View / Edit</a>
                                 @if(auth()->user()->role === 'admin')
                                 <form action="{{ route('orders.destroy', $order) }}" method="POST" class="d-inline">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Are you sure you want to delete this order?')">Delete</button>
+                                    <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Hapus transaksi?')">Delete</button>
                                 </form>
                                 @endif
                             </td>

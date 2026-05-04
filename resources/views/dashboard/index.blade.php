@@ -26,7 +26,7 @@
 <div class="page-body">
     <div class="container-xl">
         <div class="row row-deck row-cards">
-            <div class="col-sm-6 col-lg-4">
+            <div class="col-sm-6 {{ auth()->user()->role === 'admin' ? 'col-lg-4' : 'col-lg-6' }}">
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex align-items-center">
@@ -36,7 +36,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6 col-lg-4">
+            <div class="col-sm-6 {{ auth()->user()->role === 'admin' ? 'col-lg-4' : 'col-lg-6' }}">
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex align-items-center">
@@ -53,7 +53,7 @@
                         <div class="d-flex align-items-center">
                             <div class="subheader">Total Revenue</div>
                         </div>
-                        <div class="h1 mb-3">Rp {{ number_format($revenue, 2) }}</div>
+                        <div class="h1 mb-3">Rp {{ number_format($revenue, 0, ',', '.') }}</div>
                     </div>
                 </div>
             </div>
@@ -69,9 +69,7 @@
                             <thead>
                                 <tr>
                                     <th class="w-1">No.</th>
-                                    @if(auth()->user()->role === 'admin')
                                     <th>Customer</th>
-                                    @endif
                                     <th>Date</th>
                                     <th>Status</th>
                                     <th>Amount</th>
@@ -82,9 +80,7 @@
                                 @forelse($recentOrders as $order)
                                 <tr>
                                     <td><span class="text-secondary">{{ $order->id }}</span></td>
-                                    @if(auth()->user()->role === 'admin')
-                                    <td>{{ $order->user->name }}</td>
-                                    @endif
+                                    <td>{{ $order->customer->name }}</td>
                                     <td>{{ $order->created_at->format('d M Y, H:i') }}</td>
                                     <td>
                                         @if($order->status == 'pending')
@@ -99,7 +95,7 @@
                                             <span class="badge bg-danger-lt">Cancelled</span>
                                         @endif
                                     </td>
-                                    <td>Rp {{ number_format($order->total_amount, 2) }}</td>
+                                    <td>Rp {{ number_format($order->total_amount, 0, ',', '.') }}</td>
                                     <td class="text-end">
                                         <a href="{{ route('orders.show', $order) }}" class="btn btn-secondary btn-sm">View</a>
                                     </td>

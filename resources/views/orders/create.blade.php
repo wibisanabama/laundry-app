@@ -53,7 +53,7 @@
                                         <option value="">Select a service</option>
                                         @foreach($services as $service)
                                             <option value="{{ $service->id }}" data-price="{{ $service->price }}">
-                                                {{ $service->name }} (Rp {{ number_format($service->price, 0) }} / {{ $service->unit }})
+                                                {{ $service->name }} (Rp {{ number_format($service->price, 0, ',', '.') }} / {{ $service->unit }})
                                             </option>
                                         @endforeach
                                     </select>
@@ -89,7 +89,7 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label">Discount (Rp)</label>
-                                    <input type="number" name="discount" id="discount-input" class="form-control" value="0" min="0">
+                                    <input type="number" name="discount" id="discount-input" class="form-control" value="0" min="0" step="1">
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label required">Payment Status</label>
@@ -184,7 +184,7 @@
                         <option value="">Select a service</option>
                         @foreach($services as $service)
                             <option value="{{ $service->id }}" data-price="{{ $service->price }}">
-                                {{ $service->name }} (Rp {{ number_format($service->price, 0) }} / {{ $service->unit }})
+                                {{ $service->name }} (Rp {{ number_format($service->price, 0, ',', '.') }} / {{ $service->unit }})
                             </option>
                         @endforeach
                     </select>

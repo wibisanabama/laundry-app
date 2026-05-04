@@ -27,6 +27,7 @@ class ServiceController extends Controller
             'description' => 'nullable|string',
             'price' => 'required|numeric|min:0',
             'unit' => 'required|in:kg,piece',
+            'duration_hours' => 'required|integer|min:1',
         ]);
 
         Service::create($validated);
@@ -47,6 +48,7 @@ class ServiceController extends Controller
             'description' => 'nullable|string',
             'price' => 'required|numeric|min:0',
             'unit' => 'required|in:kg,piece',
+            'duration_hours' => 'required|integer|min:1',
         ]);
 
         $service->update($validated);

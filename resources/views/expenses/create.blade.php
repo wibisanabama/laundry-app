@@ -41,7 +41,7 @@
                             <label class="form-label required">Amount</label>
                             <div class="input-group">
                                 <span class="input-group-text">Rp</span>
-                                <input type="number" name="amount" class="form-control" value="{{ old('amount') }}" required min="0" step="0.01">
+                                <input type="number" name="amount" class="form-control" value="{{ old('amount') }}" required min="0" step="1">
                             </div>
                         </div>
                     </div>
