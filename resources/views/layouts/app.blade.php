@@ -28,7 +28,7 @@
                             <span class="avatar avatar-sm" style="background-image: url(https://ui-avatars.com/api/?name={{ urlencode(auth()->user()->name) }})"></span>
                             <div class="d-none d-xl-block ps-2">
                                 <div>{{ auth()->user()->name }}</div>
-                                <div class="mt-1 small text-secondary">{{ ucfirst(auth()->user()->role) }}</div>
+                                <div class="mt-1 small text-secondary">{{ auth()->user()->role === 'kasir' ? 'Cashier' : ucfirst(auth()->user()->role) }}</div>
                             </div>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
@@ -109,7 +109,7 @@
                             <span class="avatar avatar-sm" style="background-image: url(https://ui-avatars.com/api/?name={{ urlencode(auth()->user()->name) }})"></span>
                             <div class="d-none d-xl-block ps-2">
                                 <div>{{ auth()->user()->name }}</div>
-                                <div class="mt-1 small text-secondary">{{ ucfirst(auth()->user()->role) }}</div>
+                                <div class="mt-1 small text-secondary">{{ auth()->user()->role === 'kasir' ? 'Cashier' : ucfirst(auth()->user()->role) }}</div>
                             </div>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">

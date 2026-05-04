@@ -65,7 +65,7 @@
                                 <form action="{{ route('orders.destroy', $order) }}" method="POST" class="d-inline">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Hapus transaksi?')">Delete</button>
+                                    <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Delete transaction?')">Delete</button>
                                 </form>
                                 @endif
                             </td>

@@ -49,7 +49,7 @@
                             <td>{{ $service->name }}</td>
                             <td class="text-secondary text-truncate" style="max-width: 200px;">{{ $service->description }}</td>
                             <td>{{ strtoupper($service->unit) }}</td>
-                            <td>{{ $service->duration_hours }} Jam</td>
+                            <td>{{ $service->duration_hours }} Hours</td>
                             <td>Rp {{ number_format($service->price, 0, ',', '.') }}</td>
                             <td class="text-end">
                                 @if(auth()->user()->role === 'admin')
