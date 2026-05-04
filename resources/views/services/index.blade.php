@@ -11,12 +11,14 @@
                 <h2 class="page-title">Services</h2>
             </div>
             <div class="col-auto ms-auto d-print-none">
+                @if(auth()->user()->role === 'admin')
                 <div class="btn-list">
                     <a href="{{ route('services.create') }}" class="btn btn-primary d-none d-sm-inline-block">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 5l0 14" /><path d="M5 12l14 0" /></svg>
                         New Service
                     </a>
                 </div>
+                @endif
             </div>
         </div>
     </div>
@@ -48,12 +50,14 @@
                             <td>{{ strtoupper($service->unit) }}</td>
                             <td>Rp {{ number_format($service->price, 2) }}</td>
                             <td class="text-end">
+                                @if(auth()->user()->role === 'admin')
                                 <a href="{{ route('services.edit', $service) }}" class="btn btn-sm btn-outline-primary">Edit</a>
                                 <form action="{{ route('services.destroy', $service) }}" method="POST" class="d-inline">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Are you sure?')">Delete</button>
                                 </form>
+                                @endif
                             </td>
                         </tr>
                         @empty
