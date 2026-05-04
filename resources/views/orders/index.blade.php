@@ -10,7 +10,6 @@
                 <div class="page-pretitle">Management</div>
                 <h2 class="page-title">Orders</h2>
             </div>
-            @if(auth()->user()->role === 'customer')
             <div class="col-auto ms-auto d-print-none">
                 <div class="btn-list">
                     <a href="{{ route('orders.create') }}" class="btn btn-primary d-none d-sm-inline-block">
@@ -19,7 +18,6 @@
                     </a>
                 </div>
             </div>
-            @endif
         </div>
     </div>
 </div>
@@ -34,9 +32,7 @@
                     <thead>
                         <tr>
                             <th class="w-1">No.</th>
-                            @if(auth()->user()->role === 'admin')
                             <th>Customer</th>
-                            @endif
                             <th>Date</th>
                             <th>Status</th>
                             <th>Amount</th>
@@ -47,9 +43,7 @@
                         @forelse($orders as $order)
                         <tr>
                             <td><span class="text-secondary">{{ $order->id }}</span></td>
-                            @if(auth()->user()->role === 'admin')
                             <td>{{ $order->customer->name }}</td>
-                            @endif
                             <td>{{ $order->created_at->format('d M Y, H:i') }}</td>
                             <td>
                                 @if($order->status == 'pending')
@@ -78,7 +72,7 @@
                         </tr>
                         @empty
                         <tr>
-                            <td colspan="{{ auth()->user()->role === 'admin' ? 6 : 5 }}" class="text-center text-secondary">No orders found.</td>
+                            <td colspan="6" class="text-center text-secondary">No orders found.</td>
                         </tr>
                         @endforelse
                     </tbody>

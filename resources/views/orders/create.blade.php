@@ -8,7 +8,7 @@
         <div class="row g-2 align-items-center">
             <div class="col">
                 <div class="page-pretitle">Transactions</div>
-                <h2 class="page-title">New POS Transaction</h2>
+                <h2 class="page-title">New Transaction</h2>
             </div>
         </div>
     </div>
@@ -36,10 +36,9 @@
                                 <select name="customer_id" class="form-select" required>
                                     <option value="">-- Choose Customer --</option>
                                     @foreach($customers as $customer)
-                                        <option value="{{ $customer->id }}">{{ $customer->name }} ({{ $customer->phone }})</option>
+                                        <option value="{{ $customer->id }}">{{ $customer->name }}</option>
                                     @endforeach
                                 </select>
-                                <small class="form-hint">Don't see the customer? <a href="{{ route('customers.create') }}">Add new customer first</a>.</small>
                             </div>
                         </div>
 
@@ -94,8 +93,8 @@
                                 <div class="mb-3">
                                     <label class="form-label required">Payment Status</label>
                                     <select name="payment_status" id="payment_status" class="form-select" required>
-                                        <option value="unpaid">Unpaid (Belum Lunas)</option>
-                                        <option value="paid">Paid (Lunas)</option>
+                                        <option value="unpaid">Unpaid</option>
+                                        <option value="paid">Paid</option>
                                     </select>
                                 </div>
                                 <div class="mb-3" id="payment_method_container" style="display: none;">

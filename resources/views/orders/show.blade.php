@@ -115,14 +115,24 @@
                     <div class="col-md-6 text-end">
                         <div class="mb-2">
                             Order Status: 
-                            <span class="badge bg-primary">{{ strtoupper($order->status) }}</span>
+                            @if($order->status == 'pending')
+                                <span class="badge bg-secondary-lt">PENDING</span>
+                            @elseif($order->status == 'processing')
+                                <span class="badge bg-info-lt">PROCESSING</span>
+                            @elseif($order->status == 'ready')
+                                <span class="badge bg-primary-lt">READY</span>
+                            @elseif($order->status == 'completed')
+                                <span class="badge bg-success-lt">COMPLETED</span>
+                            @else
+                                <span class="badge bg-danger-lt">CANCELLED</span>
+                            @endif
                         </div>
                         <div>
                             Payment: 
                             @if($order->payment_status == 'paid')
-                                <span class="badge bg-success">PAID ({{ strtoupper($order->payment_method) }})</span>
+                                <span class="badge bg-success-lt">PAID ({{ strtoupper($order->payment_method) }})</span>
                             @else
-                                <span class="badge bg-danger">UNPAID</span>
+                                <span class="badge bg-danger-lt">UNPAID</span>
                             @endif
                         </div>
                     </div>
