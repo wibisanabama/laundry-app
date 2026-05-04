@@ -13,9 +13,15 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('customer_id')->constrained()->onDelete('cascade');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade'); // Cashier who handled it
             $table->enum('status', ['pending', 'processing', 'ready', 'completed', 'cancelled'])->default('pending');
-            $table->decimal('total_amount', 10, 2)->default(0);
+            $table->enum('payment_status', ['unpaid', 'paid'])->default('unpaid');
+            $table->enum('payment_method', ['cash', 'transfer', 'qris'])->nullable();
+            $table->decimal('discount', 10, 2)->default(0);
+            $table->decimal('total_amount', 12, 2)->default(0);
+            $table->decimal('paid_amount', 12, 2)->default(0);
+            $table->dateTime('estimated_completion_date')->nullable();
             $table->text('notes')->nullable();
             $table->timestamps();
         });

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->decimal('price', 10, 2);
             $table->enum('unit', ['kg', 'piece'])->default('kg');
+            $table->integer('duration_hours')->default(72); // Default 3 days
             $table->timestamps();
         });
     }

@@ -39,19 +39,23 @@
                             <textarea name="description" class="form-control" rows="3">{{ old('description', $service->description) }}</textarea>
                         </div>
                         <div class="row">
-                            <div class="col-md-6 mb-3">
+                            <div class="col-md-4 mb-3">
                                 <label class="form-label required">Price</label>
                                 <div class="input-group">
                                     <span class="input-group-text">Rp</span>
                                     <input type="number" name="price" class="form-control" value="{{ old('price', $service->price) }}" required min="0" step="0.01">
                                 </div>
                             </div>
-                            <div class="col-md-6 mb-3">
+                            <div class="col-md-4 mb-3">
                                 <label class="form-label required">Unit</label>
                                 <select name="unit" class="form-select" required>
                                     <option value="kg" {{ old('unit', $service->unit) == 'kg' ? 'selected' : '' }}>KG</option>
                                     <option value="piece" {{ old('unit', $service->unit) == 'piece' ? 'selected' : '' }}>Piece</option>
                                 </select>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="form-label required">Duration (Hours)</label>
+                                <input type="number" name="duration_hours" class="form-control" value="{{ old('duration_hours', $service->duration_hours) }}" required min="1">
                             </div>
                         </div>
                     </div>

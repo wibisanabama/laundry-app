@@ -5,6 +5,9 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\ExpenseController;
+use App\Http\Controllers\ReportController;
 
 Route::get('/', function () {
     return redirect()->route('login');
@@ -21,9 +24,10 @@ Route::middleware('auth')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-    // Service routes (Admin only conceptually, can use middleware later)
+    Route::resource('customers', CustomerController::class);
     Route::resource('services', ServiceController::class);
-
-    // Order routes
     Route::resource('orders', OrderController::class);
+    Route::resource('expenses', ExpenseController::class)->only(['index', 'create', 'store', 'destroy']);
+    
+    Route::get('/reports', [ReportController::class, 'index'])->name('reports.index');
 });

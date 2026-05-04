@@ -48,7 +48,7 @@
                         <tr>
                             <td><span class="text-secondary">{{ $order->id }}</span></td>
                             @if(auth()->user()->role === 'admin')
-                            <td>{{ $order->user->name }}</td>
+                            <td>{{ $order->customer->name }}</td>
                             @endif
                             <td>{{ $order->created_at->format('d M Y, H:i') }}</td>
                             <td>
