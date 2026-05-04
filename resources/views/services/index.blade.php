@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Services - Laundry App')
+@section('title', 'Services - Sans Laundry')
 
 @section('content')
 <div class="page-header d-print-none">

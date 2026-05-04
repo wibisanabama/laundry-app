@@ -1,6 +1,6 @@
 @extends('layouts.auth')
 
-@section('title', 'Login - Laundry App')
+@section('title', 'Login - Sans Laundry')
 
 @section('content')
 <div class="card card-md">

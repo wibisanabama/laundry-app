@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Invoice - Laundry POS')
+@section('title', 'Invoice - Sans Laundry')
 
 @section('content')
 <div class="page-header d-print-none">
@@ -29,7 +29,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-6">
-                        <p class="h3">Clean Laundry POS</p>
+                        <p class="h3">Sans Laundry</p>
                         <address>
                             Jl. Bersih Selalu No. 1<br>
                             Jakarta, Indonesia<br>
